@@ -16,7 +16,9 @@ import com.plugin.absen.widgets.text.TextComp
 fun AppBarComp(title: String) {
     TopAppBar(
         modifier = Modifier
-            .fillMaxWidth(), backgroundColor = MainColor,
+            .fillMaxWidth(),
+        elevation = 0.dp,
+        backgroundColor = MainColor,
     ) {
         Row(
             modifier = Modifier

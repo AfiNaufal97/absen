@@ -1,4 +1,8 @@
 package com.plugin.absen.presentation.navigation
 
-class Navigation {
+import androidx.compose.runtime.Composable
+
+@Composable
+fun Navigation(){
+
 }

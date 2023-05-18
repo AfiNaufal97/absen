@@ -1,4 +1,4 @@
-package com.plugin.absen.widgets.card_comp
+package com.plugin.absen.widgets.card_profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.plugin.absen.R
 import com.plugin.absen.ui.theme.White
-import com.plugin.absen.widgets.text_comp.TextComp
+import com.plugin.absen.widgets.text.TextComp
 
 @Composable
 fun CardComp(title: String, subTitle: String, imageUrl: String?, textColor: Color = White) {

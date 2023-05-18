@@ -1,4 +1,8 @@
 package com.plugin.absen.presentation.course
 
-class CourseScreen {
+import androidx.compose.runtime.Composable
+
+@Composable
+fun CourseScreen() {
+
 }
