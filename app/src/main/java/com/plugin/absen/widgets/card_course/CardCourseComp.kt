@@ -18,28 +18,33 @@ import com.plugin.absen.ui.theme.Grey
 import com.plugin.absen.ui.theme.Orange
 import com.plugin.absen.ui.theme.SecondaryColor
 import com.plugin.absen.ui.theme.SecondaryDarkColor
+import com.plugin.absen.utils.Size
 import com.plugin.absen.widgets.text.TextComp
 
 @Composable
 fun CardCourseComp(
     title: String,
     money: String,
+    showMoney: Boolean = true,
     textColor: Color = Color.Black,
     course: Boolean = false,
     imageUrl: String? = null,
     creatorName: String = "Creator",
     level: String = "All Level",
+    rate: Double = 4.5,
     imageInLeft: Boolean = true
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 16.dp)
+            .padding(top = 16.dp),
+        shape = RoundedCornerShape(20.dp),
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
+
 
             ) {
             if (imageInLeft)
@@ -66,12 +71,22 @@ fun CardCourseComp(
                         )
                 }
 
-            Spacer(modifier = Modifier.width(16.dp))
+
+
+            if (imageInLeft) {
+                Spacer(modifier = Modifier.width(16.dp))
+            }
+
+
+
             Column {
                 Column {
                     TextComp(text = title, size = 12.0, textColor)
                     Spacer(modifier = Modifier.height(5.dp))
-                    TextComp(text = money, size = 12.0, textColor)
+                    if (showMoney) {
+                        TextComp(text = money, size = 12.0, textColor)
+                    }
+
                 }
 
                 if (course)
@@ -84,7 +99,9 @@ fun CardCourseComp(
                             imageVector = Icons.Default.Star,
                             contentDescription = "Icon Image"
                         )
-
+                        Spacer(modifier = Modifier.width(3.dp))
+                        TextComp(text = rate.toString(), size = 12.0, textColor)
+                        Spacer(modifier = Modifier.width(5.dp))
                         TextComp(text = creatorName, size = 12.0, textColor)
                         Spacer(modifier = Modifier.width(5.dp))
                         TextComp(text = level, size = 12.0, textColor)
@@ -93,17 +110,35 @@ fun CardCourseComp(
                     Spacer(modifier = Modifier)
             }
 
+            if (!imageInLeft) {
+                Spacer(modifier = Modifier.width(16.dp))
+            }
+
+
+
             if (!imageInLeft)
-                if (imageUrl == null)
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_profile),
-                        contentDescription = "Image Default"
-                    )
-                else
-                    Image(
-                        painter = rememberAsyncImagePainter(model = imageUrl),
-                        contentDescription = "image from url"
-                    )
+                Card(
+                    modifier = Modifier
+                        .width(75.dp)
+                        .height(75.dp),
+                    shape = RoundedCornerShape(15.dp),
+                    backgroundColor = SecondaryColor
+                ) {
+                    if (imageUrl == null)
+
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_cirlce),
+                            tint = Grey,
+                            modifier = Modifier
+                                .padding(25.dp),
+                            contentDescription = "Image Default"
+                        )
+                    else
+                        Image(
+                            painter = rememberAsyncImagePainter(model = imageUrl),
+                            contentDescription = "image from url"
+                        )
+                }
 
         }
     }

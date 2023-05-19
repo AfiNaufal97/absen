@@ -3,7 +3,7 @@ package com.plugin.absen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.plugin.absen.presentation.search.SearchScreen
+import com.plugin.absen.presentation.my_course.MyCourseScreen
 import com.plugin.absen.ui.theme.AbsenTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
             AbsenTheme {
                 // A surface container using the 'background' color from the theme
 
-                SearchScreen()
+                MyCourseScreen()
 
             }
         }
